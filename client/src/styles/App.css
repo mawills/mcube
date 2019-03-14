@@ -1,15 +1,15 @@
 .App {
-  text-align: center;
-  background-color: #282c34;
-  color: white;
-  min-height: 100vh;
+    text-align: center;
+    background-color: #282c34;
+    color: white;
+    min-height: 100vh;
 }
 
 a {
-  color: #61dafb;
-  text-decoration: none;
+    color: #61dafb;
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }

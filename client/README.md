@@ -1,4 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## TODO:
+
+-   Login via Google's OneLogin
+-   Must be able to import whatever cube list CubeTutor can export (.txt, .csv, etc.)
+
+Main Features:
+
+-   Blog
+    -   Changelog
+    -   Description
+-   Cube List
+    -   Normal View
+    -   Curve View
+    -   Visual View
+    -   Filters
+    -   Custom tags
+    -   PREMIUM: custom card images
+-   Edit List
+    -   Pick specific versions
+    -   Bulk Upload
+-   Playtest
+    -   Draft
+        -   Pack size, # packs, bot #
+    -   Sealed
+        -   Pack size, # packs
+    -   Sample Pack
+    -   PREMIUM: Grid draft, winston draft
+-   Decks
+    -   Deck List
+        -   Save/Edit
+        -   Title
+        -   Comments
+    -   Upload Deck
+        -   Add cards individually
+        -   Bulk upload
+-   Analysis
+    -   Color chart
+        -   pie chart, color, multi, colorless, land
+        -   pie chart, guild/3C combinations
+    -   Num and % foiled
+    -   Rarity chart
+    -   Super-type chart
+    -   Curve chart
+    -   CMC chart
+    -   Draft chart
+-   Draft Exchange
+    -   Flag your cube to be included in draft exchange list
+    -   Draft a cube from draft exchange list, sending a notification and draft to its owner
+    -   Once both players have drafted, those decks will be displayed
+
+Non-essential features:
+
+-   Tokens
+    -   List all tokens produced in Cube
+    -   list which cards produce those tokens
+-   Pricelist
+    -   Uses tcgplayer api?
 
 ## Available Scripts
 

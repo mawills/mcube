@@ -1,9 +1,13 @@
-import React from 'react';
+import * as React from 'react';
+import { TabStructure } from '../common/types';
 import '../styles/Navigation.css';
 
-const NavigationTab = tab => {
-    const { id, label, link, selected } = tab;
-
+const NavigationTab: React.FunctionComponent<TabStructure> = ({
+    id,
+    label,
+    link,
+    selected,
+}: TabStructure) => {
     if (selected) {
         return (
             <div className={`selected navigation-tab navigation-tab-${id}`}>
@@ -19,14 +23,24 @@ const NavigationTab = tab => {
     );
 };
 
-const Navigation = ({ tabs }) => {
+const Navigation = () => {
+    const navigationTabs: TabStructure[] = [
+        { label: 'Blog', link: '/blog', id: 1, selected: true },
+        { label: 'List', link: '#', id: 2 },
+        { label: 'Playtest', link: '#', id: 3 },
+        { label: 'Premium', link: '#', id: 4 },
+        { label: 'Tokens', link: '#', id: 5 },
+        { label: 'Decks', link: '#', id: 6 },
+        { label: 'Analysis', link: '#', id: 7 },
+    ];
+
     return (
         <div className="navigation">
             <div className="navigation-left">
                 <a href="/">
                     <img src="../img/logo.svg" alt="logo" role="presentation" />
                 </a>
-                {tabs.map(tab => (
+                {navigationTabs.map(tab => (
                     <NavigationTab {...tab} key={tab.id} />
                 ))}
             </div>

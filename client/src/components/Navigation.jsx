@@ -23,7 +23,7 @@ const Navigation = ({ tabs }) => {
     return (
         <div className="navigation">
             <div className="navigation-left">
-                <a href="/home">
+                <a href="/">
                     <img src="../img/logo.svg" alt="logo" role="presentation" />
                 </a>
                 {tabs.map(tab => (

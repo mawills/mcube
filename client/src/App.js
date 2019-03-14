@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navigation from './components/Navigation';
+import Home from './components/Home';
+import Blog from './components/Blog';
 import './styles/App.css';
 
 const fakeTabs = [
-  { label: 'Blog', link: '#', id: 1, selected: true },
+  { label: 'Blog', link: '/blog', id: 1, selected: true },
   { label: 'List', link: '#', id: 2 },
   { label: 'Playtest', link: '#', id: 3 },
   { label: 'Premium', link: '#', id: 4 },
@@ -15,9 +18,14 @@ const fakeTabs = [
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navigation tabs={fakeTabs} />
-      </div>
+      <Router>
+        <div className="App">
+          <Navigation tabs={fakeTabs} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/blog" component={Blog} />
+        </div>
+      </Router>
+      
     );
   }
 }

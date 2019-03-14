@@ -23,13 +23,15 @@ const Navigation = ({ tabs }) => {
     return (
         <div className="navigation">
             <div className="navigation-left">
-                <img src="../img/logo.svg" alt="logo" role="presentation" />
+                <a href="/home">
+                    <img src="../img/logo.svg" alt="logo" role="presentation" />
+                </a>
                 {tabs.map(tab => (
                     <NavigationTab {...tab} key={tab.id} />
                 ))}
             </div>
             <div className="navigation-right">
-                <a href="#" className="navigation-home-button">
+                <a href="/" className="navigation-home-button">
                     <img src="../img/home.svg" alt="home" role="presentation" />
                 </a>
                 <div className={`navigation-tab navigation-cube-menu`}>

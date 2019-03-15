@@ -26,12 +26,11 @@ const NavigationTab: React.FunctionComponent<TabStructure> = ({
 const Navigation = () => {
     const navigationTabs: TabStructure[] = [
         { label: 'Blog', link: '/blog', id: 1, selected: true },
-        { label: 'List', link: '#', id: 2 },
-        { label: 'Playtest', link: '#', id: 3 },
-        { label: 'Premium', link: '#', id: 4 },
-        { label: 'Tokens', link: '#', id: 5 },
-        { label: 'Decks', link: '#', id: 6 },
-        { label: 'Analysis', link: '#', id: 7 },
+        { label: 'List', link: '/list', id: 2 },
+        { label: 'Playtest', link: '/playtest', id: 3 },
+        { label: 'Premium', link: '/premium', id: 4 },
+        { label: 'Decks', link: '/decks', id: 5 },
+        { label: 'Analysis', link: '/analysis', id: 6 },
     ];
 
     return (

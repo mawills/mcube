@@ -6,6 +6,16 @@ import Blog from './components/Blog';
 import './styles/App.css';
 
 class App extends React.Component<{}, {}> {
+    state = { serverMessage: '' };
+
+    componentDidMount() {
+        fetch('/users')
+            .then(res => res.json())
+            .then(serverMessage =>
+                this.setState({ serverMessage: serverMessage.message })
+            );
+    }
+
     render() {
         return (
             <Router>
@@ -13,6 +23,7 @@ class App extends React.Component<{}, {}> {
                     <Navigation />
                     <Route exact path="/" component={Home} />
                     <Route exact path="/blog" component={Blog} />
+                    <div>Message from server: {this.state.serverMessage}</div>
                 </div>
             </Router>
         );

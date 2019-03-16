@@ -14,10 +14,19 @@ class App extends React.Component<{}, {}> {
     state = { serverMessage: '' };
 
     componentDidMount() {
-        fetch('/users')
+        fetch('/cards', {
+            method: 'POST',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify({
+                cardName: 'fireball',
+            }),
+        })
             .then(res => res.json())
             .then(serverMessage =>
-                this.setState({ serverMessage: serverMessage.message })
+                // this.setState({ serverMessage: serverMessage.message })
+                console.log(serverMessage)
             );
     }
 

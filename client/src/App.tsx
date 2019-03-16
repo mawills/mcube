@@ -13,13 +13,13 @@ import './styles/App.css';
 class App extends React.Component<{}, {}> {
     state = { serverMessage: '' };
 
-    // componentDidMount() {
-    //     fetch('/users')
-    //         .then(res => res.json())
-    //         .then(serverMessage =>
-    //             this.setState({ serverMessage: serverMessage.message })
-    //         );
-    // }
+    componentDidMount() {
+        fetch('/users')
+            .then(res => res.json())
+            .then(serverMessage =>
+                this.setState({ serverMessage: serverMessage.message })
+            );
+    }
 
     render() {
         return (

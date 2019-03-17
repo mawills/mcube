@@ -6,9 +6,9 @@ var router = express.Router();
 router.post('/', (req, res) => {
     axios
         .get(`https://api.scryfall.com/cards/named?fuzzy=${req.body.cardName}`)
-        .catch(res.json({ message: 'Error looking up card' }))
-        .then(scryfallData => {
-            console.log(scryfallData.data);
+        .catch(error => {
+            console.log(error);
+            res.json({ message: 'Error looking up card.' });
         });
     res.json({ message: req.body.cardName });
 });

@@ -12,4 +12,5 @@ Run test suite. Optionally, run `yarn test filename` to run a specific test file
 
 ## TODO:
 
--   Typescript
+-   Figure out the module error when changing a route from .js to .ts
+-   Figure out which Scryfall apis are needed for the list of features

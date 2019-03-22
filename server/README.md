@@ -1,3 +1,5 @@
+Starting by running `cp .env.example .env` in the /server directory.
+
 ### `yarn start`
 
 Serves on port 3001 by default

@@ -4,6 +4,7 @@
 -   Must be able to import whatever cube list CubeTutor can export (.txt, .csv, etc.)
 -   Create 404 page route (that still displays Navigation)
 -   Add "selected" style to Navigation tabs based on the current URL route
+-   Move prettier, @types, and typescript to devDependencies
 
 Main Features:
 

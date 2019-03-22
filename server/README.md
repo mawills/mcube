@@ -1,4 +1,4 @@
-Starting by running `cp .env.example .env` in the /server directory.
+Get started by running `cp .env.example .env` in the /server directory.
 
 ### `yarn start`
 

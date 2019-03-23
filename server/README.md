@@ -19,9 +19,3 @@ Runs the Typescript compiler and builds to dist/\*
 ### `yarn clean`
 
 Deletes the contents of the dist/\* directory
-
-## TODO:
-
--   Figure out the module error when changing a route from .js to .ts
--   Figure out which Scryfall apis are needed for the list of features
--   Logging?

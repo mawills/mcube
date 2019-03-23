@@ -1,3 +1,9 @@
+### Get started:
+
+    1. Run `docker build -t mcube-client .` to build the mcube-client image.
+    2. Run `docker run -it --rm mcube-client` to start the docker container for the built image.
+    3. Run `cp .env.example .env` in the /client directory.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -7,4 +7,4 @@ const app = express();
 
 routes.register(app);
 
-export default app
+export default app;

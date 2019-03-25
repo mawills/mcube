@@ -8,7 +8,8 @@
         "sourceMap": true,
         "outDir": "dist",
         "baseUrl": ".",
-        "typeRoots": [".node_modules/@types"],
+        "resolveJsonModule": true,
+        "typeRoots": ["./node_modules/@types"],
         "types": ["jest"],
         "paths": {
             "*": ["node_modules/*"]

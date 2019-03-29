@@ -1,7 +1,7 @@
 import CubeStore from './cube-store';
 import Cube, { CubeId } from '../common/cube';
 
-export default class MapCubeStore implements CubeStore {
+export default class InMemoryCubeStore implements CubeStore {
     private readonly cubesById: Map<CubeId, Cube>;
 
     constructor(cubes: Array<Cube> = []) {

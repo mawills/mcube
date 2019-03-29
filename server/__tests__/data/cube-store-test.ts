@@ -1,7 +1,7 @@
 import {initializeAdminApp} from '@firebase/testing';
 import Cube from '../../src/common/cube';
 import FirebaseCubeStore from '../../src/data/firebase-cube-store';
-import MapCubeStore from '../../src/data/map-cube-store';
+import InMemoryCubeStore from '../../src/data/in-memory-cube-store';
 import CubeStore from '../../src/data/cube-store';
 
 const firestoreCubeStoreFactory = () => {
@@ -18,7 +18,7 @@ const firestoreCubeStoreFactory = () => {
     return new FirebaseCubeStore(db.collection('cubes'));
 };
 
-const arrayCubeStoreFactory = () => new MapCubeStore();
+const inMemoryCubeStoreFactory = () => new InMemoryCubeStore();
 
 const seedCubes = async (store: CubeStore, cubes: Cube[]) => {
     for (const cube of cubes) {
@@ -27,8 +27,8 @@ const seedCubes = async (store: CubeStore, cubes: Cube[]) => {
 };
 
 // Test both the real firestore cube store and the fake array cube store with the same tests, that way when we use
-// MapCubeStore in higher level tests, we're sure the behavior is the same
-describe.each([firestoreCubeStoreFactory, arrayCubeStoreFactory])(
+// InMemoryCubeStore in higher level tests, we're sure the behavior is the same
+describe.each([firestoreCubeStoreFactory, inMemoryCubeStoreFactory])(
     'CubeStore Tests',
     storeFactory => {
         let store: CubeStore;

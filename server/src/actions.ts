@@ -7,20 +7,23 @@ import Config from './config';
 import StoreCubeAction from './actions/store-cube';
 
 export default class Actions {
-    public constructor(private readonly config: Config) {}
+    private readonly cubeStore: CubeStore;
+    public constructor(private readonly config: Config) {
+        this.cubeStore = this.createCubeStore();
+    }
 
-    private cubeStore(): CubeStore {
+    private createCubeStore(): CubeStore {
         if (this.config.useFirestoreEmulator) {
-            return this.emulatorCubeStore();
+            return this.createEmulatorCubeStore();
         } else {
-            return this.realCubeStore();
+            return this.createRealCubeStore();
         }
     }
 
-    private realCubeStore(): FirebaseCubeStore {
+    private createRealCubeStore(): FirebaseCubeStore {
         admin.initializeApp({
             credential: admin.credential.cert({
-                projectId: this.config.firebasePrivateKey,
+                projectId: this.config.firebaseProjectId,
                 clientEmail: this.config.firebaseClientEmail,
                 privateKey: this.config.firebasePrivateKey,
             }),
@@ -31,7 +34,7 @@ export default class Actions {
         return new FirebaseCubeStore(cubes);
     }
 
-    private emulatorCubeStore(): FirebaseCubeStore {
+    private createEmulatorCubeStore(): FirebaseCubeStore {
         const db = initializeAdminApp({
             projectId: this.config.firebaseProjectId,
         }).firestore();
@@ -39,10 +42,10 @@ export default class Actions {
     }
 
     storeCubeAction(): StoreCubeAction {
-        return new StoreCubeAction(this.cubeStore());
+        return new StoreCubeAction(this.cubeStore);
     }
 
     fetchCubeAction(): FetchCubeAction {
-        return new FetchCubeAction(this.cubeStore());
+        return new FetchCubeAction(this.cubeStore);
     }
 }

@@ -1,10 +1,22 @@
 import CubeStore from './cube-store';
 import Cube, { CubeId } from '../common/cube';
 import { classToPlain, plainToClass } from 'class-transformer';
-import {CollectionReference} from "@firebase/firestore-types";
+
+interface FireCollection {
+    doc(id: string): FireDoc;
+}
+
+interface FireDoc {
+    get(): Promise<FireSnapshot>;
+    set(value: object): Promise<any>;
+}
+
+interface FireSnapshot {
+    data(): object;
+}
 
 export default class FirebaseCubeStore implements CubeStore {
-    constructor(private readonly cubes: CollectionReference) {}
+    constructor(private readonly cubes: FireCollection) {}
 
     async fetchCube(id: CubeId): Promise<Cube | undefined> {
         const snapshot = await this.cubes.doc(id).get();

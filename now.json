@@ -13,7 +13,7 @@
     }
   },
   "builds": [
-    { "src": "server/src/app.ts", "use": "@now/node" },
+    { "src": "server/src/app.ts", "use": "@now/node", "config": {"maxLambdaSize": "10MB" } },
     {
       "src": "client/package.json",
       "use": "@now/static-build",

@@ -1,4 +1,6 @@
 export default class Config {
+    public readonly firebasePrivateKey: string;
+
     constructor(
         public readonly useFirestoreEmulator: boolean = process.env
             .USE_FIRESTORE_EMULATOR === 'true',
@@ -6,7 +8,9 @@ export default class Config {
             .FIREBASE_PROJECT_ID,
         public readonly firebaseClientEmail: string = process.env
             .FIREBASE_PROJECT_EMAIL,
-        public readonly firebasePrivateKey: string = process.env
+        firebasePrivateKey: string = process.env
             .FIREBASE_PRIVATE_KEY
-    ) {}
+    ) {
+        this.firebasePrivateKey = Buffer.from(firebasePrivateKey, 'base64').toString('ascii');
+    }
 }

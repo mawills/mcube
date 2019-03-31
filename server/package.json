@@ -22,6 +22,11 @@
         "only-test": "jest"
     },
     "dependencies": {
+        "@types/body-parser": "^1.17.0",
+        "@types/dotenv": "^6.1.0",
+        "@types/express": "^4.16.1",
+        "@types/node": "^11.11.5",
+        "@types/uuid": "^3.4.4",
         "axios": "^0.18.0",
         "body-parser": "^1.18.3",
         "class-transformer": "^0.2.0",
@@ -34,12 +39,7 @@
     "devDependencies": {
         "@firebase/firestore-types": "^1.1.1",
         "@firebase/testing": "^0.7.7",
-        "@types/body-parser": "^1.17.0",
-        "@types/dotenv": "^6.1.0",
-        "@types/express": "^4.16.1",
         "@types/jest": "^24.0.11",
-        "@types/node": "^11.11.5",
-        "@types/uuid": "^3.4.4",
         "cross-var": "^1.1.0",
         "firebase-tools": "^6.5.0",
         "jest": "^24.5.0",

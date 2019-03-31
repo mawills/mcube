@@ -40,9 +40,11 @@ export default class Actions {
     }
 
     private async createEmulatorCubeStore(): Promise<FirebaseCubeStore> {
-        // Dynamic import of testing library that connects to emulator so that
-        // production doesn't install this dependency
-        const admin = await import('@firebase/testing');
+        // Dynamic import with string indirection of testing library that
+        // connects to emulator so that production doesn't install this
+        // dependency
+        const module = '@firebase/testing';
+        const admin = await import(module);
         const db = admin.initializeAdminApp({
             projectId: this.config.firebaseProjectId,
         }).firestore();

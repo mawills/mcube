@@ -1,23 +1,28 @@
 import FetchCubeAction from './actions/fetch-cube';
 import CubeStore from './data/cube-store';
 import FirebaseCubeStore from './data/firebase-cube-store';
-import { initializeAdminApp } from '@firebase/testing';
 import * as admin from 'firebase-admin';
 import Config from './config';
 import StoreCubeAction from './actions/store-cube';
 
 export default class Actions {
-    private readonly cubeStore: CubeStore;
-    public constructor(private readonly config: Config) {
-        this.cubeStore = this.createCubeStore();
-    }
+    private cubeStore?: CubeStore;
+    public constructor(private readonly config: Config) {}
 
-    private createCubeStore(): CubeStore {
+    private async createCubeStore(): Promise<CubeStore> {
         if (this.config.useFirestoreEmulator) {
-            return this.createEmulatorCubeStore();
+            return await this.createEmulatorCubeStore();
         } else {
             return this.createRealCubeStore();
         }
+    }
+
+    private async getCubeStore(): Promise<CubeStore> {
+        if (!this.cubeStore) {
+            this.cubeStore = await this.createCubeStore();
+        }
+
+        return this.cubeStore;
     }
 
     private createRealCubeStore(): FirebaseCubeStore {
@@ -34,18 +39,21 @@ export default class Actions {
         return new FirebaseCubeStore(cubes);
     }
 
-    private createEmulatorCubeStore(): FirebaseCubeStore {
-        const db = initializeAdminApp({
+    private async createEmulatorCubeStore(): Promise<FirebaseCubeStore> {
+        // Dynamic import of testing library that connects to emulator so that
+        // production doesn't install this dependency
+        const admin = await import('@firebase/testing');
+        const db = admin.initializeAdminApp({
             projectId: this.config.firebaseProjectId,
         }).firestore();
         return new FirebaseCubeStore(db.collection('cubes'));
     }
 
-    storeCubeAction(): StoreCubeAction {
-        return new StoreCubeAction(this.cubeStore);
+    async storeCubeAction(): Promise<StoreCubeAction> {
+        return new StoreCubeAction(await this.getCubeStore());
     }
 
-    fetchCubeAction(): FetchCubeAction {
-        return new FetchCubeAction(this.cubeStore);
+    async fetchCubeAction(): Promise<FetchCubeAction> {
+        return new FetchCubeAction(await this.getCubeStore());
     }
 }

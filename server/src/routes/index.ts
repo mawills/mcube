@@ -25,18 +25,16 @@ export const register = (app: express.Application) => {
     app.post(
         '/api/cubes',
         asyncRoute(async (req, res) => {
-            res.json(
-                await actions
-                    .storeCubeAction()
-                    .run(req.body.name, req.body.cardIds)
-            );
+            const action = await actions.storeCubeAction();
+            res.json(await action.run(req.body.name, req.body.cardIds));
         })
     );
 
     app.get(
         '/api/cubes/:cubeId',
         asyncRoute(async (req, res) => {
-            let cube = await actions.fetchCubeAction().run(req.params.cubeId);
+            const action = await actions.fetchCubeAction();
+            let cube = await action.run(req.params.cubeId);
             res.json(cube);
         })
     );

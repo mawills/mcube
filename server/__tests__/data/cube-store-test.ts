@@ -3,7 +3,7 @@ import Cube from '../../src/common/cube';
 import FirebaseCubeStore from '../../src/data/firebase-cube-store';
 import InMemoryCubeStore from '../../src/data/in-memory-cube-store';
 import CubeStore from '../../src/data/cube-store';
-import uuid = require('uuid');
+import * as uuid from 'uuid'
 
 const firestoreCubeStoreFactory = () => {
     // Generate a random project id because firestore is used across test suites

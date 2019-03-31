@@ -1,1 +1,32 @@
+# Zeit Config
 .next
+
+# IDE Config
+.idea
+
+# Git config
+.git
+.gitignore
+
+# Application config
+.firebaserc
+jest.config.js
+.env.example
+.env
+
+# Dependencies and build artifacts
+node_modules
+build
+dist
+
+# Logs
+server/firebase-debug.log
+server/firestore-debug.log
+
+# Dev only files
+.prettierrc.yaml
+README.md
+__tests__
+
+# Infrastructure files
+/server/firestore

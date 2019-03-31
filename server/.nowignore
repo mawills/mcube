@@ -1,8 +1,0 @@
-node_modules
-.env
-.env.example
-.gitignore
-.prettierrc.yaml
-README.md
-__tests__
-firebase-debug.log

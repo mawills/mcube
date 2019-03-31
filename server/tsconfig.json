@@ -9,8 +9,6 @@
         "outDir": "dist",
         "baseUrl": ".",
         "resolveJsonModule": true,
-        "typeRoots": ["./node_modules/@types"],
-        "types": ["jest"],
         "paths": {
             "*": ["node_modules/*"]
         }

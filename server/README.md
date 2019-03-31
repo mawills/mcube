@@ -1,4 +1,5 @@
 Get started by running `cp .env.example .env` in the /server directory.
+Then, to enable working with the firestore emulator, run `yarn run firebase setup:emulators:firestore`
 
 ### `yarn start`
 

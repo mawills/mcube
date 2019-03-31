@@ -4,7 +4,6 @@
     "main": "dist/index.js",
     "license": "MIT",
     "scripts": {
-        "postinstall": "firebase setup:emulators:firestore",
         "start-emulator": "run-script-os start-emulator",
         "start-emulator:win32": "firebase serve --only firestore > NUL",
         "start-emulator:darwin:linux": "firebase serve --only firestore > /dev/null",

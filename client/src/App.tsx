@@ -14,7 +14,7 @@ class App extends React.Component<{}, {}> {
     state = { serverMessage: '' };
 
     componentDidMount() {
-        fetch('/cards', {
+        fetch('/api/cards', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',

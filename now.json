@@ -1,8 +1,19 @@
 {
   "version": 2,
   "name": "mcube",
+  "env": {
+    "NODE_ENV": "production",
+    "FIREBASE_PROJECT_ID": "@firebase-project-id",
+    "FIREBASE_PROJECT_EMAIL": "@firebase-project-email",
+    "FIREBASE_PRIVATE_KEY": "@firebase-private-key"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
   "builds": [
-    { "src": "server/src/app.ts", "use": "@now/node" },
+    { "src": "server/src/app.ts", "use": "@now/node", "config": {"maxLambdaSize": "10MB" } },
     {
       "src": "client/package.json",
       "use": "@now/static-build",
@@ -11,27 +22,12 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server/src/app.ts" },
-    {
-      "src": "/static/(.*)",
-      "headers": { "cache-control": "s-maxage=31536000,immutable" },
-      "dest": "/client/static/$1"
-    },
+    { "src": "/static/(.*)", "headers": { "cache-control": "s-maxage=31536000,immutable" }, "dest": "/client/static/$1" },
     { "src": "/favicon.ico", "dest": "/client/favicon.ico" },
     { "src": "/asset-manifest.json", "dest": "/client/asset-manifest.json" },
     { "src": "/manifest.json", "dest": "/client/manifest.json" },
-    {
-      "src": "/precache-manifest.(.*)",
-      "dest": "/client/precache-manifest.$1"
-    },
-    {
-      "src": "/service-worker.js",
-      "headers": { "cache-control": "s-maxage=0" },
-      "dest": "/client/service-worker.js"
-    },
-    {
-      "src": "/(.*)",
-      "headers": { "cache-control": "s-maxage=0" },
-      "dest": "/client/index.html"
-    }
+    { "src": "/precache-manifest.(.*)", "dest": "/client/precache-manifest.$1" },
+    { "src": "/service-worker.js", "headers": { "cache-control": "s-maxage=0" }, "dest": "/client/service-worker.js" },
+    { "src": "/(.*)", "headers": {"cache-control": "s-maxage=0"}, "dest": "/client/index.html" }
   ]
 }

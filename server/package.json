@@ -47,7 +47,7 @@
         "prettier": "^1.16.4",
         "rimraf": "^2.6.3",
         "run-script-os": "^1.0.5",
-        "start-server-and-test": "^1.7.12",
+        "start-server-and-test": "^1.9.1",
         "ts-jest": "^24.0.0",
         "typescript": "^3.3.4000",
         "yarn-run-all": "^3.1.1"

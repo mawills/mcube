@@ -1,61 +1,57 @@
-import * as React from 'react';
-import { TabStructure } from '../common/types';
-import '../styles/Navigation.css';
+import React from 'react';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
-const NavigationTab: React.FunctionComponent<TabStructure> = ({
-    id,
-    label,
-    link,
-    selected,
-}: TabStructure) => {
-    if (selected) {
-        return (
-            <div className={`selected navigation-tab navigation-tab-${id}`}>
-                <a href={link}>{label}</a>
-            </div>
-        );
+interface LinkTabProps {
+    label?: string;
+    href?: string;
+}
+
+function LinkTab(props: LinkTabProps) {
+    return (
+        <Tab
+            component="a"
+            onClick={(
+                event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+            ) => {
+                event.preventDefault();
+            }}
+            {...props}
+        />
+    );
+}
+
+const useStyles = makeStyles((theme: Theme) => ({
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper,
+    },
+}));
+
+function Navigation() {
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
+
+    function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
+        setValue(newValue);
     }
 
     return (
-        <div className={`navigation-tab navigation-tab-${id}`}>
-            <a href={link}>{label}</a>
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Tabs value={value} onChange={handleChange}>
+                    <LinkTab label="Blog" href="/blog" />
+                    <LinkTab label="List" href="/list" />
+                    <LinkTab label="Playtest" href="/playtest" />
+                    <LinkTab label="Premium" href="/premium" />
+                    <LinkTab label="Decks" href="/decks" />
+                    <LinkTab label="Analysis" href="/analysis" />
+                </Tabs>
+            </AppBar>
         </div>
     );
-};
-
-const Navigation = () => {
-    const navigationTabs: TabStructure[] = [
-        { label: 'Blog', link: '/blog', id: 1, selected: true },
-        { label: 'List', link: '/list', id: 2 },
-        { label: 'Playtest', link: '/playtest', id: 3 },
-        { label: 'Premium', link: '/premium', id: 4 },
-        { label: 'Decks', link: '/decks', id: 5 },
-        { label: 'Analysis', link: '/analysis', id: 6 },
-    ];
-
-    return (
-        <div className="navigation">
-            <div className="navigation-left">
-                <a href="/">
-                    <img src="../img/logo.svg" alt="logo" role="presentation" />
-                </a>
-                {navigationTabs.map(tab => (
-                    <NavigationTab {...tab} key={tab.id} />
-                ))}
-            </div>
-            <div className="navigation-right">
-                <a href="/" className="navigation-home-button">
-                    <img src="../img/home.svg" alt="home" role="presentation" />
-                </a>
-                <div className={`navigation-tab navigation-cube-menu`}>
-                    <a href="#">My Cubes Dropdown</a>
-                </div>
-                <div className={`navigation-tab navigation-sign-in`}>
-                    <a href="#">Sign In</a>
-                </div>
-            </div>
-        </div>
-    );
-};
+}
 
 export default Navigation;

@@ -41,6 +41,7 @@ function Navigation() {
     return (
         <div className={classes.root}>
             <AppBar position="static">
+                <div>MCUBE</div>
                 <Tabs value={value} onChange={handleChange}>
                     <LinkTab label="Blog" href="/blog" />
                     <LinkTab label="List" href="/list" />

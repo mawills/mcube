@@ -8,14 +8,13 @@ import Playtest from './components/Playtest';
 import List from './components/List';
 import Premium from './components/Premium';
 import Decks from './components/Decks';
+import Container from '@material-ui/core/Container';
 
 class App extends React.Component<{}, {}> {
-    state = { serverMessage: '' };
-
     render() {
         return (
             <Router>
-                <div className="App">
+                <Container maxWidth="xl">
                     <Navigation />
                     <Route exact path="/" component={Home} />
                     <Route exact path="/blog" component={Blog} />
@@ -24,8 +23,7 @@ class App extends React.Component<{}, {}> {
                     <Route exact path="/premium" component={Premium} />
                     <Route exact path="/decks" component={Decks} />
                     <Route exact path="/analysis" component={Analysis} />
-                    <div>Message from server: {this.state.serverMessage}</div>
-                </div>
+                </Container>
             </Router>
         );
     }

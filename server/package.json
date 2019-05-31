@@ -43,7 +43,7 @@
         "cross-var": "^1.1.0",
         "firebase-tools": "^6.10.0",
         "jest": "^24.8.0",
-        "nodemon": "^1.18.10",
+        "nodemon": "^1.19.1",
         "prettier": "^1.17.1",
         "rimraf": "^2.6.3",
         "run-script-os": "^1.0.5",

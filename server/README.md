@@ -1,6 +1,10 @@
 Get started by running `cp .env.example .env` in the /server directory.
 Then, to enable working with the firestore emulator, run `yarn run firebase setup:emulators:firestore`
 
+## Available Scripts
+
+In the server directory, you can run:
+
 ### `yarn start`
 
 Serves on port 3001 by default

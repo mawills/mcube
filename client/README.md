@@ -12,7 +12,7 @@ You will also see any lint errors in the console.
 
 ### `yarn cosmos`
 
-Loads UI components into a Component Playground to see seem components in isolation and under any combination of props, context, and state.<br>
+Loads UI components into a Component Playground to see components in isolation and under any combination of props, context, and state.<br>
 Open [http://localhost:8989](http://localhost:8989) to view it in the browser.
 
 ### `yarn test`

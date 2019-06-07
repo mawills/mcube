@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
-    "prettier": "^1.17.1",
+    "prettier": "^1.18.0",
     "typescript": "^3.5.1"
   },
   "eslintConfig": {

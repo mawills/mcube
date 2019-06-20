@@ -6698,10 +6698,10 @@ run-async@^2.2.0:
   dependencies:
     is-promise "^2.1.0"
 
-run-script-os@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/run-script-os/-/run-script-os-1.0.5.tgz#2cf188122bc6ee2ad8faa4f2e53d0aa8be08116f"
-  integrity sha512-uDMVaOAB9M4Q8KcQRVgt7jTZlGNIrlTPbEO+wEA+7kTTMsrL6/JYTkrRWuGF7VpZHHKLreTd/FN7J+EYEaUvhQ==
+run-script-os@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/run-script-os/-/run-script-os-1.0.7.tgz#7cd51144a19c6ca364fe668433f55b47babf4749"
+  integrity sha512-H4NAhP9PiseQQm3Vpen7CHksfKGqC4dmwoVu/9th97r3XyBrMtkg4jIUiy/8dgzuI9MGwmK/7vf13Wncx+Y4bw==
 
 rx@^4.1.0:
   version "4.1.0"

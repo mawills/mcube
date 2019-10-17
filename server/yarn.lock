@@ -202,10 +202,15 @@
     faye-websocket "0.11.3"
     tslib "1.10.0"
 
-"@firebase/firestore-types@1.4.4", "@firebase/firestore-types@^1.4.4":
+"@firebase/firestore-types@1.4.4":
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.4.4.tgz#3051a9c163b4b76ae04544629ff5e0777e452548"
   integrity sha512-kFpmzkUKfzrXkcMad+TQlMs55dWNY0q1UxGICW82EneX3Yg6HN3Nx36kYfqH+SLBFUN1ZTikN07alMp0MA9p9g==
+
+"@firebase/firestore-types@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.6.2.tgz#3e65d18ee552384504fb85ba691df7bec0721e97"
+  integrity sha512-GsBlAqNft1pwEWNKnQWwwqzLoyfUSC3bSb1e7yxu5+NKaJO+uUD48KrZUTDu94pgPLkJslj8SLkl9FVjNJa8Xw==
 
 "@firebase/firestore@1.4.12":
   version "1.4.12"

@@ -37,7 +37,7 @@
         "uuid": "^3.3.3"
     },
     "devDependencies": {
-        "@firebase/firestore-types": "^1.4.4",
+        "@firebase/firestore-types": "^1.8.0",
         "@firebase/testing": "^0.12.2",
         "@types/jest": "^24.0.18",
         "cross-var": "^1.1.0",
